@@ -48,6 +48,9 @@ class Fire {
     ellipse(loc.x, loc.y, sz, sz);
     loc.add(vel);
   }
+  void mousePressed() {
+    bullets.add(new Fire(r));
+  }
 }
 void setup() {
   size(500, 500);
@@ -57,15 +60,12 @@ void setup() {
 }
 void draw() {
   background(255);
-  if (mousePressed) {
-    bullets.add(new Fire(r));
-  }
   for (int i = 0; i < bullets.size (); i++) {
     f = bullets.get(i);
-    f.display();
-  }
+  }    
+  f.display();
+  f.mousePressed();
   r.display();
   //Update the rotation of the rocketship every frame
   r.update();
 }
-
